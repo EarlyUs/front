@@ -1,0 +1,8 @@
+/* pretendard 400 */
+@font-face {
+	font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+	font-family: 'Pretendard';
+	font-style: Regular;
+	font-weight: 400;
+	src: url('/fonts/Pretendard-Regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
