@@ -7,6 +7,12 @@
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+
+	--blue-strong: #0047ff;
+	--blue-mute: #d0ddff;
+	--green-light: #eeffaa;
+	--gray-light: #ededed;
+	--gray-deep: #787878;
 }
 
 a {
@@ -21,8 +27,9 @@ a:hover {
 body {
 	margin: 0;
 	display: flex;
-	justify-content: center;
 	place-items: center;
+	width: 100%;
+	height: 100vh;
 	min-width: 375px;
 	min-height: 100vh;
 	background-color: #fff;
