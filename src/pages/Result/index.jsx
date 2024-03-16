@@ -26,35 +26,33 @@ const ResultPage = () => {
 
 	return (
 		<>
-			{/* <s.Container> */}
-			{/* <s.Wrapper> */}
 			{isLoading ? (
 				<Loading />
 			) : (
-				<>
-					<s.Title>
-						<s.Highlight>이화연</s.Highlight> 벗에게 어울리는
-						<br />
-						날개는 <s.Highlight>초록미르 나래</s.Highlight>에요
-					</s.Title>
-					<WingCard name={'초록미르 나래'} />
+				<s.Container>
+					<s.Wrapper>
+						<s.Title>
+							<s.Highlight>이화연</s.Highlight> 벗에게 어울리는
+							<br />
+							날개는 <s.Highlight>초록미르 나래</s.Highlight>에요
+						</s.Title>
+						<WingCard name={'초록미르 나래'} />
 
-					<s.ButtonContainer>
-						<Button
-							width={20.94}
-							rad={8}
-							font={1.25}
-							color={'#fff'}
-							bg={'var(--blue-strong)'}
-							func={handleHref}
-						>
-							자세히 보기
-						</Button>
-					</s.ButtonContainer>
-				</>
+						<s.ButtonContainer>
+							<Button
+								width={20.94}
+								rad={8}
+								font={1.25}
+								color={'#fff'}
+								bg={'var(--blue-strong)'}
+								func={handleHref}
+							>
+								자세히 보기
+							</Button>
+						</s.ButtonContainer>
+					</s.Wrapper>
+				</s.Container>
 			)}
-			{/* </s.Wrapper> */}
-			{/* </s.Container> */}
 		</>
 	);
 };

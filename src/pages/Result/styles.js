@@ -1,14 +1,12 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-	height: 100vh;
+	height: fit-content;
 	display: flex;
 	flex-direction: column;
 `;
 
-export const Wrapper = styled.div`
-	margin: 5.44rem 1.25rem 0;
-`;
+export const Wrapper = styled.div``;
 
 export const Title = styled.div`
 	font-size: 1.75rem;
