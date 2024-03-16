@@ -7,9 +7,9 @@ import FirstStepPage from './Step1';
 import SecondStepPage from './Step2';
 import LastStepPage from './Step3';
 import ResultPage from './Result';
+import DetailPage from './ResultDetail';
 import Progressbar from '../components/Progressbar';
 import '../styles/index.css';
-import DetailPage from './ResultDetail';
 
 const Routes = () => {
 	const location = useLocation();
