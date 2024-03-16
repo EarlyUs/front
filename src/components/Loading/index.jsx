@@ -5,9 +5,9 @@ const Loading = () => {
 	const [currentIndex, setCurrentIndex] = useState(0);
 
 	const images = [
-		'/imgs/mock_img_1.png', // 이미지 URL1
-		'/imgs/mock_img_2.png', // 이미지 URL2
-		'/imgs/mock_img_3.png', // 이미지 URL3
+		'/imgs/chorok.webp', // 이미지 URL1
+		'/imgs/onsae.webp', // 이미지 URL2
+		'/imgs/puruen.webp', // 이미지 URL3
 	];
 
 	useEffect(() => {

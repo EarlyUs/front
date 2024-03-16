@@ -31,11 +31,12 @@ export const Title = styled.div`
 
 export const ImgBox = styled.div`
 	width: 11.94rem;
-	margin: 3.13rem auto 2.5rem;
+	margin-top: 1.75rem;
 `;
 
 export const Img = styled.img`
-	height: 8.56rem;
+	width: 21rem;
+	height: 15.31rem;
 	margin: 0 auto;
 `;
 

@@ -1,21 +1,23 @@
 import { useState } from 'react';
 import * as s from './styles';
 
-const TypeBlock = ({ title, desc, img }) => {
-	const [isSelected, setIsSelected] = useState(false);
+const TypeBlock = ({ title, desc, img, onSelectChange }) => {
+	const [isselected, setIsSelected] = useState(false);
 
 	const handleToggleSelect = () => {
-		setIsSelected(!isSelected);
+		const newSelectedState = !isselected;
+		setIsSelected(newSelectedState);
+		onSelectChange(newSelectedState);
 	};
 
 	return (
 		<>
-			<s.Container onClick={handleToggleSelect} isSelected={isSelected}>
+			<s.Container onClick={handleToggleSelect} isselected={isselected}>
 				<s.Content>
 					<s.Title>{title}</s.Title>
 					<s.Desc>{desc}</s.Desc>
 				</s.Content>
-				<s.Img img={img} />
+				<s.Img src={img} />
 			</s.Container>
 		</>
 	);
