@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-	max-width: 786px;
-	background-color: #000;
+	min-width: 375px;
+	height: 100vh;
+	margin: 0 auto;
+`;
+
+export const Wrapper = styled.div`
+	margin: 5.44rem 1.25rem 0;
 `;

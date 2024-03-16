@@ -5,7 +5,6 @@ const InfoCard = () => {
 		<>
 			<s.Container>
 				<s.Wrapper>
-					<s.Img />
 					<s.Title>과목명</s.Title>
 					<s.InfoBox>
 						<s.Category>

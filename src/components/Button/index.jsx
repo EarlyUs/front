@@ -16,7 +16,6 @@ const Button = ({
 		<>
 			<s.Container
 				width={width}
-				// height={height}
 				padding={padding}
 				border={border}
 				rad={rad}

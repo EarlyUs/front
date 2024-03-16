@@ -8,7 +8,7 @@ export const Container = styled.div`
 `;
 
 export const Wrapper = styled.div`
-	margin: 0.94rem;
+	padding: 0.94rem;
 `;
 
 export const Img = styled.div`
@@ -20,7 +20,7 @@ export const Img = styled.div`
 export const Title = styled.div`
 	width: 100%;
 	height: fit-content;
-	margin: 0.56rem 0 0.69rem;
+	margin: 0 0 0.69rem;
 	font-size: 1.5rem;
 	font-weight: 700;
 `;

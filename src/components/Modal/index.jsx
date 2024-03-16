@@ -6,10 +6,19 @@ import Button from '../Button';
 const Modal = ({ onClose }) => {
 	const backgroundRef = useRef();
 
+	// 모달 닫기
 	const handleClose = e => {
 		if (e.target === backgroundRef.current) {
 			onClose();
 		}
+	};
+
+	// 모집 공고로 이동
+	const handleHref = () => {
+		window.open(
+			'http://support.ewha.ac.kr/support/board/notice.do?mode=view&articleNo=15390&article.offset=0&articleLimit=10',
+			'_blank'
+		);
 	};
 
 	return (
@@ -31,6 +40,7 @@ const Modal = ({ onClose }) => {
 								bg={'#0047ff'}
 								font={1.25}
 								color={'#fff'}
+								func={handleHref}
 							>
 								바로 지원하기
 							</Button>
