@@ -7,10 +7,11 @@ import FirstStepPage from './Step1';
 import SecondStepPage from './Step2';
 import LastStepPage from './Step3';
 import ResultPage from './Result';
-import DetailPage from './ResultDetail';
 import Progressbar from '../components/Progressbar';
 import '../styles/index.css';
 import useScrollToTop from '../hooks/useScrollToTop';
+import PendingPage from './ResultDetail/Pending';
+import MatchingPage from './ResultDetail/Matching';
 
 const Routes = () => {
 	useScrollToTop();
@@ -40,7 +41,8 @@ const Routes = () => {
 				<Route path="/" element={<LandingPage />} />
 				<Route path="/main" element={<MainPage />} />
 				<Route path="/wing/result" element={<ResultPage />} />
-				<Route path="/wing/detail" element={<DetailPage />} />
+				<Route path="/wing/detail" element={<MatchingPage />} />
+				<Route path="/wing/recommend" element={<PendingPage />} />
 			</Router>
 		</Layout>
 	);

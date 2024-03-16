@@ -5,7 +5,7 @@ const ProgressLayout = ({ children, progressBar }) => {
 		<>
 			<s.Container>
 				{progressBar} {/* `/wing/step/*` 페이지에서만 렌더링 */}
-				<s.Wrapper>{children}</s.Wrapper>
+				<s.Wrapper className="progress">{children}</s.Wrapper>
 			</s.Container>
 		</>
 	);
