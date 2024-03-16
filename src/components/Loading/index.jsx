@@ -22,11 +22,13 @@ const Loading = () => {
 			<s.Container>
 				<s.Wrapper>
 					<s.Title>
-						벗이 날개를 달아줄 수 있는
+						<s.Highlight>이화연</s.Highlight>벗에게 어울리는
 						<br />
-						수업을 찾고 있어요
+						날개를 찾고 있어요
 					</s.Title>
-					<s.AnimatedImg key={currentIndex} src={images[currentIndex]} />
+					<s.ImgBox>
+						<s.AnimatedImg key={currentIndex} src={images[currentIndex]} />
+					</s.ImgBox>
 					<s.InfoContainer>
 						<s.InfoWrapper>
 							<s.Head>

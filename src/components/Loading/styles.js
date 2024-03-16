@@ -12,28 +12,31 @@ const fadeInUp = keyframes`
 `;
 
 export const Container = styled.div`
+	width: 100%;
 	height: 100vh;
 	display: flex;
 	flex-direction: column;
 `;
 
 export const Wrapper = styled.div`
-	// margin: 5.44rem 1.25rem 0;
+	width: 21rem;
+	margin: 5.44rem auto 0;
 `;
 
 export const Title = styled.div`
 	font-size: 1.75rem;
 	font-weight: 700;
+	line-height: 2.06rem;
 `;
 
 export const ImgBox = styled.div`
+	width: 11.94rem;
 	margin: 3.13rem auto 2.5rem;
 `;
 
 export const Img = styled.img`
-	width: 100%;
 	height: 8.56rem;
-	margin: 3.13rem auto 2.5rem;
+	margin: 0 auto;
 `;
 
 export const AnimatedImg = styled(Img)`
