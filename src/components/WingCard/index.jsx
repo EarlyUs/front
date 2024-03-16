@@ -33,43 +33,43 @@ const WingCard = ({ name }) => {
 	return (
 		<>
 			<s.Container ref={componentRef}>
-				<s.Wrapper>
+				<s.Wrapper bg={`${wing.bg_image}`}>
 					{wing ? (
-						<>
+						<s.Card>
 							<s.Title>{name}</s.Title>
-							<s.ImgBox>
-								<s.Img src={`${wing.image}`} alt={name} />
-							</s.ImgBox>
-							<s.SubTitle>{wing.subTitle}</s.SubTitle>
-							<s.Desc>{wing.description}</s.Desc>
-						</>
+
+							<s.DescBox>
+								<s.SubTitle>{wing.subTitle}</s.SubTitle>
+								<s.Desc>{wing.description}</s.Desc>
+							</s.DescBox>
+						</s.Card>
 					) : (
 						<p>해당 이름에 대한 정보가 없습니다.</p>
 					)}
 				</s.Wrapper>
+				<s.ButtonGroup>
+					<Button
+						width={7.69}
+						rad={8}
+						font={1}
+						color={'#000'}
+						bg={'var(--gray-light)'}
+						func={handleDownload}
+					>
+						이미지 저장
+					</Button>
+					<Button
+						width={9.31}
+						rad={8}
+						font={1}
+						color={'#000'}
+						bg={'var(--gray-light)'}
+						// func={handleDownload}
+					>
+						친구와 공유하기
+					</Button>
+				</s.ButtonGroup>
 			</s.Container>
-			<s.ButtonGroup>
-				<Button
-					width={7.69}
-					rad={8}
-					font={1}
-					color={'#000'}
-					bg={'var(--gray-light)'}
-					func={handleDownload}
-				>
-					이미지 저장
-				</Button>
-				<Button
-					width={9.31}
-					rad={8}
-					font={1}
-					color={'#000'}
-					bg={'var(--gray-light)'}
-					// func={handleDownload}
-				>
-					친구와 공유하기
-				</Button>
-			</s.ButtonGroup>
 		</>
 	);
 };

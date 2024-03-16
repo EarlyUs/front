@@ -2,14 +2,27 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
 	width: 18rem;
-	height: 25rem;
-	margin: 3.13rem auto 1rem;
-	background-color: var(--gray-light);
+	height: 26.25rem;
+	margin: 0 auto 1rem;
+	// padding: 1.88rem 0 2.44rem;
 	border-radius: 22px;
 `;
 
 export const Wrapper = styled.div`
-	padding: 1.88rem 0 2.44rem;
+	width: 100%;
+	height: 100%;
+	display: inline-block;
+	position: relative;
+	margin-bottom: 1rem;
+	border-radius: 22px;
+	background-image: url(${props => props.bg});
+	background-size: cover;
+`;
+
+export const Card = styled.div`
+	width: 100%;
+	height: fit-content;
+	margin-top: 1.13rem;
 `;
 
 export const Title = styled.div`
@@ -32,10 +45,23 @@ export const Img = styled.img`
 	margin: 1.56rem auto 1.5rem;
 `;
 
+export const DescBox = styled.div`
+	width: 16rem;
+	height: 6.94rem;
+	display: inline-block;
+	position: absolute;
+	bottom: 1rem;
+	left: 50%;
+	transform: translate(-50%, 0);
+	margin: 0 auto;
+	background: rgba(256, 256, 256, 0.9);
+	border-radius: 8px;
+`;
+
 export const SubTitle = styled.div`
 	width: 100%;
-	margin-bottom: 1rem;
-	font-size: 1.25rem;
+	margin: 0.69rem auto;
+	font-size: 1rem;
 	font-weight: 700;
 	text-align: center;
 `;
