@@ -2,10 +2,12 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as s from './styles';
 import Loading from '../../components/Loading';
-import WingCard from '../../components/WingCard';
 import Button from '../../components/Button';
+import wingData from '../../data/wings.json';
 
 const ResultPage = () => {
+	const wing = '푸른아라 나래';
+	const bg = wingData[wing].bg_image;
 	// 로딩 상태관리
 	const [isLoading, setLoading] = useState(true);
 
@@ -29,14 +31,13 @@ const ResultPage = () => {
 			{isLoading ? (
 				<Loading />
 			) : (
-				<s.Container>
+				<s.Container bg={bg}>
 					<s.Wrapper>
 						<s.Title>
 							<s.Highlight>이화연</s.Highlight> 벗에게 어울리는
 							<br />
-							날개는 <s.Highlight>초록미르 나래</s.Highlight>에요
+							날개는 <s.Highlight>{`${wing}`}</s.Highlight>에요
 						</s.Title>
-						<WingCard name={'초록미르 나래'} />
 
 						<s.ButtonContainer>
 							<Button
