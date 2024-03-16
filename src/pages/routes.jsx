@@ -15,6 +15,7 @@ import useScrollToTop from '../hooks/useScrollToTop';
 const Routes = () => {
 	useScrollToTop();
 
+	// `/step/*` 페이지에서 프로그레스바 활용
 	const location = useLocation();
 	const stepPaths = ['/wing/step/1', '/wing/step/2', '/wing/step/3'];
 	const currentStepIndex = stepPaths.indexOf(location.pathname) + 1;
