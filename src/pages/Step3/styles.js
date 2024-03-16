@@ -8,7 +8,7 @@ export const Container = styled.div`
 `;
 export const Wrapper = styled.div`
 	width: 20.94rem;
-	margin: 1.63rem auto;
+	margin: 0 auto;
 `;
 export const Title = styled.div`
 	width: 21rem;
