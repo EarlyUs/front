@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.button`
 	-webkit-appearance: none;
 	width: ${props => `${props.width}rem`};
-	padding: ${props => `${props.padding}rem`};
+	margin-bottom: ${props => `${props.marginBottom}rem`};
 	border: ${props => `1px solid ${props.border} ` || none};
 	border-radius: ${props => `${props.rad}px`};
 	font-size: ${props => `${props.font}rem`};

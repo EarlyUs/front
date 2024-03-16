@@ -51,7 +51,6 @@ const WingCard = ({ name }) => {
 			<s.ButtonGroup>
 				<Button
 					width={7.69}
-					padding={0.44}
 					rad={8}
 					font={1}
 					color={'#000'}
@@ -62,7 +61,6 @@ const WingCard = ({ name }) => {
 				</Button>
 				<Button
 					width={9.31}
-					padding={0.44}
 					rad={8}
 					font={1}
 					color={'#000'}

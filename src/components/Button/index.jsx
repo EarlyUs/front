@@ -2,8 +2,7 @@ import * as s from './styles';
 
 const Button = ({
 	width,
-	// height,
-	padding,
+	marginBottom,
 	border,
 	rad,
 	font,
@@ -16,7 +15,7 @@ const Button = ({
 		<>
 			<s.Container
 				width={width}
-				padding={padding}
+				marginBottom={marginBottom}
 				border={border}
 				rad={rad}
 				font={font}
