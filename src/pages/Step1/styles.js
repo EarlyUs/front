@@ -35,6 +35,7 @@ export const Category = styled.div`
 	width: 3.13rem;
 	height: 100%;
 	line-height: 2.5rem;
+	font-weight: 700;
 `;
 
 export const Input = styled.input`
@@ -57,22 +58,38 @@ export const Regex = styled.span`
 `;
 
 export const MajorInfo = styled.div`
-	height: 1.19rem;
+	height: fit-content;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	line-height: 1.19rem;
+	margin: 1.5rem auto;
+`;
+
+export const Header = styled.div`
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-	line-height: 1.19rem;
+`;
+
+export const ButtonBox = styled.div`
+	display: flex;
+	flex-direction: row;
 `;
 
 export const SubTitle = styled.div`
+	margin-bottom: 1rem;
 	font-size: 1rem;
-	font-weight: 600;
+	font-weight: 700;
 `;
 
 export const AddButton = styled.div`
+	width: 5.5rem;
 	display: flex;
 	flex-direction: row;
 	font-size: 0.75rem;
+	text-align: center;
+	justify-content: center;
 	cursor: pointer;
 `;
 

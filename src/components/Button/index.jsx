@@ -10,6 +10,7 @@ const Button = ({
 	bg,
 	children,
 	func,
+	disabled,
 }) => {
 	return (
 		<>
@@ -21,7 +22,9 @@ const Button = ({
 				font={font}
 				color={color}
 				bg={bg}
-				onClick={func}
+				onClick={!disabled ? func : undefined}
+				disabled={disabled}
+				className={disabled ? 'disabled' : ''}
 			>
 				{children}
 			</s.Container>

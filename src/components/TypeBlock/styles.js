@@ -2,15 +2,16 @@ import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
 	width: 100%;
-	height: 5.69rem;
+	height: 6.25rem;
 	margin-bottom: 0.75rem;
 	display: flex;
 	flex-direction: row;
+	align-items: center;
 	background-color: var(--gray-light);
 	border-radius: 8px;
 
 	${props =>
-		props.isSelected &&
+		props.isselected &&
 		css`
 			background-color: var(--green-light);
 			border: 2px solid var(--blue-strong);
@@ -25,15 +26,18 @@ export const Content = styled.div`
 `;
 
 export const Title = styled.div`
+	margin-bottom: 0.75rem;
 	font-size: 1.25rem;
 	font-weight: 700;
 `;
 
 export const Desc = styled.div`
-	font-size: 1rem;
+	font-size: 0.88rem;
+	line-height: 1.06rem;
+	white-space: pre-wrap;
 `;
 
-export const Img = styled.div`
-	width: 5.25rem;
-	height: 3.94rem;
+export const Img = styled.img`
+	width: 3.75rem;
+	height: 3.75rem;
 `;

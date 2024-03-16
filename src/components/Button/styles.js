@@ -7,7 +7,7 @@ export const Container = styled.button`
 	border: ${props => `1px solid ${props.border} ` || none};
 	border-radius: ${props => `${props.rad}px`};
 	font-size: ${props => `${props.font}rem`};
-	font-weight: 600;
+	font-weight: 700;
 	background-color: ${props => `${props.bg}`};
 	color: ${props => `${props.color}`};
 	text-align: center;
@@ -15,5 +15,10 @@ export const Container = styled.button`
 
 	&:focus {
 		outline: none;
+	}
+
+	&.disabled {
+		background-color: var(--gray-light);
+		color: var(--gray-deep);
 	}
 `;
