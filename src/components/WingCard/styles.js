@@ -28,7 +28,7 @@ export const ImgBox = styled.div`
 
 export const Img = styled.img`
 	width: 13.63rem;
-	height: fit-content;
+	height: 9.81rem;
 	margin: 1.56rem auto 1.5rem;
 `;
 
