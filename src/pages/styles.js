@@ -7,5 +7,5 @@ export const Container = styled.div`
 `;
 
 export const Wrapper = styled.div`
-	margin: 5.44rem 1.25rem 0;
+	margin: 1.63rem auto;
 `;

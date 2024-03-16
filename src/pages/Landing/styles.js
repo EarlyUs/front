@@ -8,7 +8,7 @@ export const Container = styled.div`
 `;
 
 export const Wrapper = styled.div`
-	width: 100%;
+	width: 21rem;
 	// margin: 1.25rem auto 0;
 `;
 
@@ -20,6 +20,12 @@ export const Title = styled.div`
 	margin-top: 4.19rem;
 	font-weight: 700;
 	font-size: 2rem;
+`;
+
+export const SubTitle = styled.div`
+	margin-top: 4.19rem;
+	font-weight: 700;
+	font-size: 1.5rem;
 `;
 
 export const DescCard = styled.div`
@@ -61,8 +67,11 @@ export const HighLight = styled.span`
 	color: var(--blue-strong);
 `;
 
-export const SubTitle = styled.div`
-	margin: 2.31rem 0 0.63rem;
-	font-size: 1.25rem;
+export const Promote = styled.div`
+	width: 21rem;
+	margin: 2.31rem auto 0.63rem;
+	font-size: 1rem;
 	font-weight: 700;
+	text-align: center;
+	color: var(--blue-strong);
 `;

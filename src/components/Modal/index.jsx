@@ -35,7 +35,6 @@ const Modal = ({ onClose }) => {
 						<s.BtnGroup>
 							<Button
 								width={17.13}
-								padding={0.94}
 								rad={8}
 								bg={'#0047ff'}
 								font={1.25}
@@ -46,7 +45,6 @@ const Modal = ({ onClose }) => {
 							</Button>
 							<Button
 								width={17.13}
-								padding={0.94}
 								border={'#0047ff'}
 								rad={8}
 								bg={'#fff'}
