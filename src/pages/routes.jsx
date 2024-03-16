@@ -10,8 +10,11 @@ import ResultPage from './Result';
 import DetailPage from './ResultDetail';
 import Progressbar from '../components/Progressbar';
 import '../styles/index.css';
+import useScrollToTop from '../hooks/useScrollToTop';
 
 const Routes = () => {
+	useScrollToTop();
+
 	const location = useLocation();
 	const stepPaths = ['/wing/step/1', '/wing/step/2', '/wing/step/3'];
 	const currentStepIndex = stepPaths.indexOf(location.pathname) + 1;
