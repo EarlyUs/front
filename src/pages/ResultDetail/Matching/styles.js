@@ -31,14 +31,31 @@ export const Highlight = styled.span`
 
 export const BenefitCard = styled.div`
 	width: 21rem;
+	height: fit-content;
+	display: inline-block;
 	margin: 0 auto 2rem;
-	background-color: var(--gray-light);
+	background-color: #fff;
 	border-radius: 8px;
 `;
 
 export const Desc = styled.div`
-	padding: 1rem;
+	width: 18rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	margin: 1rem 1rem 1.5rem;
 	font-size: 1rem;
+`;
+
+export const Icon = styled.img`
+	width: 2.25rem;
+	height: 2rem;
+`;
+
+export const Benefit = styled.div`
+	width: 14rem;
+	font-size: 0.88rem;
 `;
 
 export const Li = styled.li``;

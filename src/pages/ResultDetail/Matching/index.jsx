@@ -20,6 +20,14 @@ const MatchingPage = () => {
 			window.removeEventListener('scroll', handleScroll);
 		};
 	}, []);
+
+	// 모집 공고로 이동
+	const handleHref = () => {
+		window.open(
+			'http://support.ewha.ac.kr/support/board/notice.do?mode=view&articleNo=15390&article.offset=0&articleLimit=10',
+			'_blank'
+		);
+	};
 	return (
 		<>
 			<s.Container>
@@ -36,19 +44,32 @@ const MatchingPage = () => {
 					</s.Title>
 					<s.BenefitCard>
 						<s.Desc>
-							<s.Li>
-								국가근로장학금으로 활동시간에 따라 급여를 받을 수 있어요
-							</s.Li>
-							<s.Li>
-								자원봉사로 신청 시, 사회봉사활동 인증제 또는 사회봉사
-								학점(1학점)으로 인정받을 수 있어요
-							</s.Li>
-							<s.Li>
-								나중에 수강 예정인 과목을 미리 공부하고, 관심 있는 타 전공
-								수업도 경험할 수 있어요
-							</s.Li>
-							<s.Li>새로운 인간관계를 만들 수 있어요 </s.Li>
-							<s.Li>장애학생의 수업권 보장을 위해 직접 기여할 수 있어요</s.Li>
+							<s.Icon src="/icons/money.webp" />
+							<s.Benefit>
+								든든한 국가근로장학금을 <br />
+								수혜받을 수 있어요
+							</s.Benefit>
+						</s.Desc>
+						<s.Desc>
+							<s.Icon src="/icons/grade.webp" />
+							<s.Benefit>
+								사회봉사활동 인증제 또는 사회봉사 학점으로 인정받을 수 있어요
+							</s.Benefit>
+						</s.Desc>
+						<s.Desc>
+							<s.Icon src="/icons/certification.webp" />
+							<s.Benefit>
+								장애학생 교육지원활동 증명서를
+								<br />
+								발급받을 수 있어요
+							</s.Benefit>
+						</s.Desc>
+						<s.Desc>
+							<s.Icon src="/icons/friendship.webp" />
+							<s.Benefit>
+								새로운 인연을 만나
+								<br />더 넓은 세상을 배울 수 있어요
+							</s.Benefit>
 						</s.Desc>
 					</s.BenefitCard>
 					<s.Title>
@@ -63,6 +84,7 @@ const MatchingPage = () => {
 							font={1.25}
 							color={'#fff'}
 							bg={'var(--blue-strong)'}
+							func={handleHref}
 						>
 							바로 신청하기
 						</Button>
@@ -75,6 +97,7 @@ const MatchingPage = () => {
 								font={1.25}
 								color={'#fff'}
 								bg={'var(--blue-strong)'}
+								func={handleHref}
 							>
 								바로 신청하기
 							</Button>
