@@ -5,11 +5,11 @@ const InfoCard = () => {
 		<>
 			<s.Container>
 				<s.Wrapper>
-					<s.Title>과목명</s.Title>
+					<s.Title>중국근세의사회와문화</s.Title>
 					<s.InfoBox>
 						<s.Category>
 							<s.Name>시간</s.Name>
-							<s.Content>월4목5</s.Content>
+							<s.Content>화2 금3</s.Content>
 						</s.Category>
 						<s.Category>
 							<s.Name>도움 유형</s.Name>
