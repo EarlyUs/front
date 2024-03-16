@@ -9,7 +9,7 @@ export const Container = styled.div`
 
 export const Wrapper = styled.div`
 	padding: 1rem;
-	background-color: var(--gray-light);
+	background-color: #fff;
 	border-radius: 8px;
 `;
 

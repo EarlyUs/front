@@ -30,6 +30,15 @@ const WingCard = ({ name }) => {
 		}
 	};
 
+	// sns 공유
+	const shareToSNS = () => {
+		navigator.share({
+			title: document.title,
+			text: '이화나래벗 신청하기~',
+			url: 'https://front-seven-rho.vercel.app/',
+		});
+	};
+
 	return (
 		<>
 			<s.Container ref={componentRef}>
@@ -64,7 +73,7 @@ const WingCard = ({ name }) => {
 						font={1}
 						color={'#000'}
 						bg={'var(--gray-light)'}
-						// func={handleDownload}
+						func={shareToSNS}
 					>
 						친구와 공유하기
 					</Button>
