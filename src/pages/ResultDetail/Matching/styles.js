@@ -1,9 +1,23 @@
 import styled from 'styled-components';
 
+export const Container = styled.div`
+	height: fit-content;
+	display: flex;
+	flex-direction: column;
+	background-color: var(--green-light);
+`;
+
+export const Wrapper = styled.div`
+	width: 21rem;
+	margin: 5.44rem auto 0;
+`;
+
 export const Title = styled.div`
-	margin-bottom: 1.5rem;
+	width: 21rem;
+	margin: 2rem auto 1.5rem;
 	font-size: 1.75rem;
 	font-weight: 700;
+	line-height: 2.06rem;
 
 	&:last-child {
 		margin-top: 3.13rem;
@@ -37,5 +51,13 @@ export const ButtonContainer = styled.div`
 	width: fit-content;
 	height: fit-content;
 	position: fixed;
-	bottom: 3.38rem;
+	bottom: 2.5rem;
+`;
+
+export const ShareBox = styled.div`
+	width: 100vw;
+	height: 44.94rem;
+	background-color: #fff;
+	border-top-left-radius: 32px 32px;
+	border-top-right-radius: 32px 32px;
 `;
