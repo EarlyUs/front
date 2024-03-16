@@ -15,9 +15,9 @@ const LastStepPage = () => {
 			<s.Container>
 				<s.Wrapper>
 					<s.Title>
-						가장 도움 주고 싶은
+						가장 잘 해낼 수 있는
 						<br />
-						유형을 선택해주세요
+						도움 유형을 선택해주세요
 					</s.Title>
 					<TypeBlock title={'노트필기'} desc={'이런저런도움'}></TypeBlock>
 					<TypeBlock title={'노트북 속타'} desc={'이런저런도움'}></TypeBlock>
@@ -32,7 +32,7 @@ const LastStepPage = () => {
 							bg={'var(--blue-strong)'}
 							func={handleHref}
 						>
-							매칭 받기
+							나에게 어울리는 날개 찾기
 						</Button>
 					</s.ButtonContainer>
 				</s.Wrapper>

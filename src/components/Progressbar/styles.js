@@ -19,4 +19,5 @@ export const Progress = styled.div`
 	height: 0.75rem;
 	background-color: var(--blue-strong);
 	border-radius: 8px;
+	transition: width 0.5s ease-in-out;
 `;

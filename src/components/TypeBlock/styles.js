@@ -13,7 +13,7 @@ export const Container = styled.div`
 		props.isSelected &&
 		css`
 			background-color: var(--green-light);
-			border: 1px solid var(--blue-strong);
+			border: 2px solid var(--blue-strong);
 		`}
 `;
 
