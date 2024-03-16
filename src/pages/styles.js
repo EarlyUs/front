@@ -7,5 +7,10 @@ export const Container = styled.div`
 `;
 
 export const Wrapper = styled.div`
-	margin: 1.63rem auto;
+	width: 100vw;
+	margin: 0 auto;
+
+	&.progress {
+		margin: 1.75rem 0;
+	}
 `;
