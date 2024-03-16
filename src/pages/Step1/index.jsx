@@ -32,7 +32,7 @@ const FirstStepPage = () => {
 				<s.Wrapper>
 					<s.StudentInfo>
 						<s.Title>
-							벗에 대해
+							먼저, 벗에 대해
 							<br />
 							알려주세요
 						</s.Title>
@@ -67,7 +67,6 @@ const FirstStepPage = () => {
 					<s.ButtonContainer>
 						<Button
 							width={20.94}
-							padding={0.94}
 							rad={8}
 							font={1.25}
 							color={'var(--blue-strong)'}

@@ -30,7 +30,6 @@ const SecondStepPage = () => {
 					<s.ButtonContainer>
 						<Button
 							width={20.94}
-							padding={0.94}
 							rad={8}
 							font={1.25}
 							color={'var(--blue-strong)'}
