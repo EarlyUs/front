@@ -3,7 +3,9 @@ import * as s from './styles';
 const Layout = ({ children }) => {
 	return (
 		<>
-			<s.Container>{children}</s.Container>
+			<s.Container>
+				<s.Wrapper>{children}</s.Wrapper>
+			</s.Container>
 		</>
 	);
 };
