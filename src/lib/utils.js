@@ -31,3 +31,13 @@ export const formatStudentId = studentId => {
 
 	return formatted;
 };
+
+/**
+ * 문자열로 표현된 시간을 시간 형식으로 포맷팅하는 삼수
+ * @param {string} time - 포맷팅할 시간
+ * @returns {Date} 포맷팅된 시간
+ */
+export const formatTimeToMinutes = time => {
+	const [hours, minutes] = time.split(':').map(Number);
+	return hours * 60 + minutes;
+};
