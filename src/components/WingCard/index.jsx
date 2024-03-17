@@ -32,11 +32,16 @@ const WingCard = ({ name }) => {
 
 	// sns 공유
 	const shareToSNS = () => {
-		navigator.share({
-			title: document.title,
-			text: '이화나래벗 신청하기~',
-			url: 'https://front-seven-rho.vercel.app/',
-		});
+		try {
+			navigator.share({
+				title: document.title,
+				text: '👼 나는 어떤 이화나래일까?\n이화나래벗은 장애학생의 수업을 다양한 방식으로 지원합니다.\n모든 이의 학습권을 존중하는 이화를 함께 만들 수 있어요\n…\n지금 벗만의 이화나래가 벗을 기다리고 있어요!\n아래 링크에서 이화나래 유형을 확인해보세요\n🔗https://earlyus-front.vercel.app',
+				url: 'https://earlyus-front.vercel.app',
+			});
+		} catch {
+			navigator.clipboard.writeText(text);
+			alert('클립보드에 복사되었습니다.');
+		}
 	};
 
 	return (
