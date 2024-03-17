@@ -9,6 +9,7 @@ export const Container = styled.div`
 	align-items: center;
 	background-color: var(--gray-light);
 	border-radius: 8px;
+	cursor: pointer;
 
 	${props =>
 		props.isselected &&
