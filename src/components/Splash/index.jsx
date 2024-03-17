@@ -21,14 +21,12 @@ const Splash = ({ onFadeout }) => {
 	};
 	return (
 		<>
-			<s.Container
-				bg={'/imgs/bg_splash.webp'}
-				fadeout={fadeout}
-				onAnimationEnd={handleAnimationEnd}
-			>
-				<s.Wrapper>
-					<s.Title>도움배움</s.Title>
-					<s.Subtitle>나만의 이화나래 찾아보기</s.Subtitle>
+			<s.Container fadeout={fadeout} onAnimationEnd={handleAnimationEnd}>
+				<s.Wrapper bg={'/imgs/bg_splash.webp'}>
+					<s.TextBox>
+						<s.Title>도움배움</s.Title>
+						<s.Subtitle>나만의 이화나래 찾아보기</s.Subtitle>
+					</s.TextBox>
 				</s.Wrapper>
 			</s.Container>
 		</>
