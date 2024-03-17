@@ -42,7 +42,6 @@ const LandingPage = () => {
 	return (
 		<>
 			<s.Container>
-				{/* {isLoading && <Splash onFadeOut={} />} */}
 				{isLoading ? (
 					<Splash onFadeout={() => setLoading(false)} />
 				) : (
@@ -55,38 +54,39 @@ const LandingPage = () => {
 									<br />
 									환영해요!
 								</s.Title>
-								<s.DescCard>
-									<s.Content>
-										<s.Head>이화나래벗이란?</s.Head>
-										<s.Body>이러저러한 활동을 하는 거에요</s.Body>
-									</s.Content>
-								</s.DescCard>
-								<s.DescCard>
-									<s.Content>
-										<s.Head>이화나래벗이 되면 이런 장점이 있어요</s.Head>
-										<s.Body>
-											<s.Li>
-												국가근로장학금으로 활동시간에 따라 급여를 받을 수 있어요
-											</s.Li>
-											<s.Li>
-												자원봉사로 신청 시, 사회봉사활동 인증제 또는 사회봉사
-												학점(1학점)으로 인정받을 수 있어요
-											</s.Li>
-											<s.Li>
-												나중에 수강 예정인 과목을 미리 공부하고, 관심 있는 타
-												전공 수업도 경험할 수 있어요
-											</s.Li>
-											<s.Li>새로운 인간관계를 만들 수 있어요 </s.Li>
-											<s.Li>
-												장애학생의 수업권 보장을 위해 직접 기여할 수 있어요
-											</s.Li>
-										</s.Body>
-									</s.Content>
-								</s.DescCard>
+								<s.Content>
+									<s.Head>이화나래벗이란?</s.Head>
+									<s.Body>
+										장애학생 교육활동 지원활동(이화나래벗)은 장애학생의 원활한
+										대학생활 및 학업을 지원하기 위해 수업대필, 이동지원,
+										교재제작 등의 활동을 해요.
+									</s.Body>
+								</s.Content>
+								<s.Content>
+									<s.Head>이화나래벗이 되면 이런 장점이 있어요</s.Head>
+									<s.BodyContainer>
+										<s.Benefit>
+											<s.Icon src="/icons/money.webp" />
+											<s.Name>장학금</s.Name>
+										</s.Benefit>
+										<s.Benefit>
+											<s.Icon src="/icons/grade.webp" />
+											<s.Name>봉사학점</s.Name>
+										</s.Benefit>
+										<s.Benefit>
+											<s.Icon src="/icons/certification.webp" />
+											<s.Name>활동증명서</s.Name>
+										</s.Benefit>
+										<s.Benefit>
+											<s.Icon src="/icons/friendship.webp" />
+											<s.Name>새로운 인연</s.Name>
+										</s.Benefit>
+									</s.BodyContainer>
+								</s.Content>
 								<s.SubTitle>
 									지금, 벗의 도움을 기다리는
 									<br />
-									장애학생 <s.HighLight>nn</s.HighLight>명
+									장애학생 <s.HighLight>52</s.HighLight>명
 								</s.SubTitle>
 								<s.Promote>나는 어떤 날개가 될까?</s.Promote>
 								<Button
