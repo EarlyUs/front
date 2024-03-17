@@ -25,3 +25,12 @@ export const ButtonContainer = styled.div`
 	position: fixed;
 	bottom: 3.38rem;
 `;
+
+export const ButtonGroup = styled.div`
+	width: 12.13rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin-left: auto;
+	margin-bottom: 0.75rem;
+`;

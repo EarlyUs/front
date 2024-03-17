@@ -12,20 +12,30 @@ export const StyledTable = styled.table`
 `;
 
 export const StyledTh = styled.th`
-	border: 1px solid #000;
-	padding: 10px;
+	// padding: 10px;
 	text-align: center;
-	background-color: #fff; // 헤더 셀 배경색을 설정하세요
+	background-color: #fff;
+	font-size: 0.75rem;
+	font-weight: 400;
+	border: none;
+
+	&:first-child {
+		width: 1rem;
+		margin-right: 0.25rem;
+	}
 `;
 
 export const StyledTd = styled.td`
-	border: 1px solid #000;
-	height: 50px; // 셀의 높이를 조절하세요
-	background-color: #fff; // 셀 배경색을 설정하세요
+	height: 1.25rem;
+	background-color: #fff;
+	border: 1px solid #bcbcbc;
 `;
 
 export const TimeLabel = styled.td`
-	border: 1px solid #000;
+	display: inline-block;
 	text-align: center;
-	background-color: #f7f7f7; // 시간 레이블 배경색을 설정하세요
+	vertical-align: top;
+	background-color: #fff;
+	font-size: 0.5rem;
+	border: none;
 `;
