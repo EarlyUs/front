@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import * as s from './styles';
 import Loading from '../../components/Loading';
 import Button from '../../components/Button';
-import wingData from '../../data/wings.json';
+import wingData from '../../mock/wings.json';
 
 const ResultPage = () => {
 	const wing = '푸른아라 나래';

@@ -1,5 +1,5 @@
 import * as s from './styles';
-import courses from '../../data/courses.json';
+import courses from '../../mock/courses.json';
 
 const ClassCard = () => {
 	const student = '이화연';

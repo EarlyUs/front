@@ -1,6 +1,6 @@
 import * as s from './styles';
 import { useEffect, useState } from 'react';
-import majorsData from '../../data/major.json';
+import majorsData from '../../mock/major.json';
 
 const Dropdown = ({ onSelectionChange }) => {
 	const [selectedCollege, setSelectedCollege] = useState('');

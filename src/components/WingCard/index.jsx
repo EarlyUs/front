@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import html2canvas from 'html2canvas';
 import { saveAs } from 'file-saver';
 import * as s from './styles';
-import wings from '../../data/wings.json';
+import wings from '../../mock/wings.json';
 import Button from '../Button/index';
 
 const WingCard = ({ name }) => {
