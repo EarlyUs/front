@@ -1,7 +1,6 @@
 import { Route, Routes as Router, useLocation } from 'react-router-dom';
 import Layout from './Layout';
 import ProgressLayout from './ProgressLayout';
-import MainPage from './Main';
 import LandingPage from './Landing';
 import FirstStepPage from './Step1';
 import SecondStepPage from './Step2';
@@ -39,7 +38,6 @@ const Routes = () => {
 		<Layout>
 			<Router>
 				<Route path="/" element={<LandingPage />} />
-				<Route path="/main" element={<MainPage />} />
 				<Route path="/wing/result" element={<ResultPage />} />
 				<Route path="/wing/detail" element={<MatchingPage />} />
 				<Route path="/wing/recommend" element={<PendingPage />} />
