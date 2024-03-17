@@ -11,6 +11,8 @@ import '../styles/index.css';
 import useScrollToTop from '../hooks/useScrollToTop';
 import PendingPage from './ResultDetail/Pending';
 import MatchingPage from './ResultDetail/Matching';
+import ApplyPoolPage from './ResultDetail/ApplyPool';
+import WaitingPage from './ResultDetail/Waiting';
 
 const Routes = () => {
 	useScrollToTop();
@@ -41,6 +43,8 @@ const Routes = () => {
 				<Route path="/wing/result" element={<ResultPage />} />
 				<Route path="/wing/detail" element={<MatchingPage />} />
 				<Route path="/wing/recommend" element={<PendingPage />} />
+				<Route path="/wing/apply" element={<ApplyPoolPage />} />
+				<Route path="/wing/apply/done" element={<WaitingPage />} />
 			</Router>
 		</Layout>
 	);
