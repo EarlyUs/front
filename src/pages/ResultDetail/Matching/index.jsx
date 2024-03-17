@@ -33,7 +33,7 @@ const MatchingPage = () => {
 			<s.Container>
 				<s.Wrapper>
 					<s.Title>
-						<s.Highlight>이화연</s.Highlight> 벗이 날개를 달아줄 수<br />
+						<s.Highlight>이화연</s.Highlight>벗이 날개를 달아줄 수<br />
 						있는 수업이에요
 					</s.Title>
 					<ClassCard />
@@ -110,7 +110,7 @@ const MatchingPage = () => {
 						<br />
 						공유해 보세요
 					</s.Title>
-					<WingCard name={'초록미르 나래'} />
+					<WingCard name={'푸른아라 나래'} />
 				</s.ShareBox>
 			</s.Container>
 		</>

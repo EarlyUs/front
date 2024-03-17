@@ -8,6 +8,7 @@ import wingData from '../../mock/wings.json';
 const ResultPage = () => {
 	const wing = '푸른아라 나래';
 	const bg = wingData[wing].bg_image;
+
 	// 로딩 상태관리
 	const [isLoading, setLoading] = useState(true);
 
@@ -34,7 +35,7 @@ const ResultPage = () => {
 				<s.Container bg={bg}>
 					<s.Wrapper>
 						<s.Title>
-							<s.Highlight>이화연</s.Highlight> 벗에게 어울리는
+							<s.Highlight>이화연</s.Highlight>벗에게 어울리는
 							<br />
 							날개는 <s.Highlight>{`${wing}`}</s.Highlight>에요
 						</s.Title>

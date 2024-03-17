@@ -2,19 +2,23 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
 	width: 100vw;
+	max-width: 480px;
 	height: 100vh;
-	background-image: url(${props => props.bg});
-	background-size: cover;
 	display: flex;
 	flex-direction: column;
+	margin: 0 auto;
+	background-image: url(${props => props.bg});
+	background-size: cover;
 `;
 
 export const Wrapper = styled.div`
+	width: 100%;
 	height: 100%;
 	margin: 5.44rem auto 3.38rem;
 `;
 
 export const Title = styled.div`
+	margin-left: 1.25rem;
 	font-size: 1.75rem;
 	font-weight: 700;
 `;
@@ -26,9 +30,11 @@ export const Highlight = styled.span`
 
 export const ButtonContainer = styled.div`
 	width: 100%;
+	max-width: 480px;
 	display: flex;
 	justify-content: center;
 	position: fixed;
-	left: 0;
+	left: 50%;
 	bottom: 3.38rem;
+	transform: translate(-50%, 0);
 `;
