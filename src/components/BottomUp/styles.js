@@ -12,7 +12,7 @@ export const Background = styled.div`
 
 export const Container = styled.div`
 	width: 100%;
-	max-width: 400px;
+	max-width: 480px;
 	height: 31.25rem;
 	position: fixed;
 	left: 50%;
