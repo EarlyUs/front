@@ -17,14 +17,14 @@ const Dropdown = ({ onSelectionChange }) => {
 			);
 			if (college) {
 				setDepartments(college.departments || []);
-				setMajors([]); // 학과/부서 변경 시 majors 초기화
+				setMajors([]); // 학과 변경 시 majors 초기화
 				setSelectedDepartment('');
 				setSelectedMajor('');
 			}
 		}
 	}, [selectedCollege]);
 
-	// 학과/부서 선택 시 전공 업데이트
+	// 학과 선택 시 전공 업데이트
 	useEffect(() => {
 		if (selectedDepartment) {
 			const college = majorsData.colleges.find(college =>
@@ -60,7 +60,7 @@ const Dropdown = ({ onSelectionChange }) => {
 		<>
 			<s.Container>
 				<s.Select value={selectedCollege} onChange={handleCollegeChange}>
-					<option value="">대학 선택</option>
+					<option value="">단과대학</option>
 					{majorsData.colleges.map((college, index) => (
 						<option key={index} value={college.name}>
 							{college.name}
@@ -73,7 +73,7 @@ const Dropdown = ({ onSelectionChange }) => {
 					onChange={handleDepartmentChange}
 					disabled={!selectedCollege}
 				>
-					<option value="">학과/부서 선택</option>
+					<option value="">학부</option>
 					{departments.map((department, index) => (
 						<option key={index} value={department}>
 							{department}
@@ -83,7 +83,7 @@ const Dropdown = ({ onSelectionChange }) => {
 
 				{majors.length > 0 && (
 					<s.Select value={selectedMajor} onChange={handleMajorChange}>
-						<option value="">전공 선택</option>
+						<option value="">전공</option>
 						{majors.map((major, index) => (
 							<option key={index} value={major}>
 								{major}
