@@ -2,8 +2,9 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
 	width: 17.13rem;
-	margin: 1.25rem 0;
-
+	height: 9.56rem;
+	margin: 2.31rem 0 2.63rem;
+	border-radius: 8px;
 	background-color: #f1f1f1;
 `;
 
@@ -47,8 +48,25 @@ export const Category = styled.div`
 
 export const Name = styled.div`
 	width: 4.44rem;
+	line-height: normal;
 `;
 
 export const Content = styled.div`
 	width: 10.38rem;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+`;
+
+export const Type = styled.span`
+	width: 4.13rem;
+	height: 1.38rem;
+	margin-right: 0.5rem;
+	background-color: var(--blue-mute);
+	border-radius: 8px;
+	color: var(--blue-strong);
+	font-size: 0.75rem;
+	font-weight: 700;
+	text-align: center;
+	line-height: 1.38rem;
 `;
