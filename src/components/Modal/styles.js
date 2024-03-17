@@ -17,24 +17,25 @@ export const Container = styled.div`
 	left: 50%;
 	transform: translate(-50%, -50%);
 	margin: 0 auto;
+	border-radius: 8px;
 	background-color: #fff;
 `;
 
 export const Wrapper = styled.div`
-	width: 100%;
-	height: 100%;
 	margin: 1.25rem;
 `;
+
 export const Title = styled.div`
 	width: 17.13rem;
 	height: 3.63rem;
 	font-size: 1.5rem;
 	font-weight: 700;
+	line-height: 1.81rem;
 `;
 
 export const BtnGroup = styled.div`
 	width: fit-content;
-	height: 8rem;
+	height: 7.38rem;
 	display: flex;
 	margin: 0 auto;
 	flex-wrap: wrap;

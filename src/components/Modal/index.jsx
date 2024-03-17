@@ -35,16 +35,18 @@ const Modal = ({ onClose }) => {
 						<s.BtnGroup>
 							<Button
 								width={17.13}
+								height={3.38}
 								rad={8}
 								bg={'#0047ff'}
 								font={1.25}
 								color={'#fff'}
 								func={handleHref}
 							>
-								바로 지원하기
+								바로 신청하기
 							</Button>
 							<Button
 								width={17.13}
+								height={3.38}
 								border={'#0047ff'}
 								rad={8}
 								bg={'#fff'}
