@@ -9,14 +9,15 @@ export const Container = styled.div`
 `;
 
 export const Wrapper = styled.div`
-	width: 100%;
-	height: 100%;
+	width: 18rem;
+	height: 26.25rem;
 	display: inline-block;
 	position: relative;
 	margin-bottom: 1rem;
 	border-radius: 22px;
 	background-image: url(${props => props.bg});
 	background-size: cover;
+	background-position: center -60px;
 `;
 
 export const Card = styled.div`
