@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import ClassCard from '../../../components/ClassCard'
-import Button from '../../../components/Button/index.tsx'
+import Button from '../../../components/Button/index'
 import * as s from './styles'
 import WingCard from '../../../components/WingCard'
 
@@ -112,6 +112,7 @@ const MatchingPage = () => {
                         <br />
                         공유해 보세요
                     </s.Title>
+                    {/* todo: 결과에 따라 wingcard 보여주기 */}
                     <WingCard name={'푸른아라 나래'} />
                 </s.ShareBox>
             </s.Container>

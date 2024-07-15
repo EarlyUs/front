@@ -1,5 +1,5 @@
 import * as s from './styles'
-import Button from '../../../components/Button/index.tsx'
+import Button from '../../../components/Button/index'
 import WingCard from '../../../components/WingCard'
 
 const WaitingPage = () => {
@@ -42,6 +42,7 @@ const WaitingPage = () => {
                             공유해보세요
                         </s.Title>
                         <s.WingCardContainer>
+                            {/* todo: 결과에 따라 wingcard 보여주기 + 중복되는 로직이니까 메모이제이션 생각해보기 */}
                             <WingCard name={'푸른아라 나래'} />
                         </s.WingCardContainer>
                     </s.Contents>

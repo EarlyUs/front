@@ -1,14 +1,28 @@
-import { useRef } from 'react'
+import React, { useRef } from 'react'
 import html2canvas from 'html2canvas'
 import { saveAs } from 'file-saver'
 import * as s from './styles'
-import wings from '../../mock/wings.json'
-import Button from '../Button/index.tsx'
+import wingsData from '../../mock/wings.json'
+import Button from '../Button/index'
 
-const WingCard = ({ name }) => {
+// Wing 인터페이스 정의
+interface Wing {
+    image: string
+    bg_image: string
+    subTitle: string
+    description: string
+}
+
+const wings: { [key: string]: Wing } = wingsData
+
+interface Props {
+    name: string
+}
+
+const WingCard: React.FC<Props> = ({ name }) => {
     const wing = wings[name]
     // 컴포넌트를 이미지로 저장
-    const componentRef = useRef()
+    const componentRef = useRef<HTMLDivElement>(null)
 
     const handleDownload = async () => {
         if (!componentRef.current) {

@@ -1,14 +1,22 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import * as s from './styles'
-import Button from '../../components/Button/index.tsx'
+import Button from '../../components/Button/index'
 import TypeBlock from '../../components/TypeBlock'
+
+type HelpType =
+    | 'noteTaking'
+    | 'fastTyping'
+    | 'materialMaking'
+    | 'mobilitySupport'
 
 const LastStepPage = () => {
     // 다음 페이지로 이동
     const navigate = useNavigate()
 
-    const [currentSelected, setCurrentSelected] = useState(null)
+    const [currentSelected, setCurrentSelected] = useState<HelpType | null>(
+        null
+    )
 
     // 각 TypeBlock의 선택 상태를 관리하는 객체
     const [selectedStates, setSelectedStates] = useState({
@@ -25,7 +33,7 @@ const LastStepPage = () => {
     }
 
     // 특정 TypeBlock이 선택되었을 때 호출될 함수
-    const handleSelectChange = type => {
+    const handleSelectChange = (type: HelpType) => {
         setCurrentSelected(type) // 현재 선택된 TypeBlock 업데이트
     }
 

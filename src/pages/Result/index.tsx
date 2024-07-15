@@ -2,10 +2,11 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import * as s from './styles'
 import Loading from '../../components/Loading'
-import Button from '../../components/Button/index.tsx'
+import Button from '../../components/Button/index'
 import wingData from '../../mock/wings.json'
 
 const ResultPage = () => {
+    // @todo api 불러오기
     const wing = '푸른아라 나래'
     const bg = wingData[wing].bg_image
 

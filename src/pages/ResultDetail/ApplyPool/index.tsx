@@ -1,17 +1,20 @@
-import { useState } from 'react'
+import { ChangeEventHandler, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { formatPhoneNumber } from '../../../lib/utils'
 import * as s from './styles'
-import Button from '../../../components/Button/index.tsx'
+import Button from '../../../components/Button/index'
 
 const ApplyPoolPage = () => {
     const [phoneNumber, setPhoneNumber] = useState('')
 
-    const handlePhoneNumberChange = event => {
-        const formatted = formatPhoneNumber(event.target.value)
+    const handlePhoneNumberChange = (
+        e: React.ChangeEvent<HTMLInputElement>
+    ) => {
+        const formatted = formatPhoneNumber(e.target.value)
         setPhoneNumber(formatted)
     }
 
+    // todo: 인재풀 api
     // 다음 페이지로 이동
     const navigate = useNavigate()
     const handleHref = () => {

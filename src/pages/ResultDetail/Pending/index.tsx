@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import Button from '../../../components/Button/index.tsx'
+import Button from '../../../components/Button/index'
 import ClassCard from '../../../components/ClassCard'
 import * as s from './styles'
 

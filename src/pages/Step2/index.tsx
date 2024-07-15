@@ -2,8 +2,14 @@ import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import * as s from './styles'
 import Timetable from '../../components/Timetable'
-import Button from '../../components/Button/index.tsx'
+import Button from '../../components/Button/index'
 import BottomUp from '../../components/BottomUp'
+
+// SelectedTime 인터페이스 정의
+interface SelectedTime {
+    selectedDay: string
+    startTime: string
+}
 
 const SecondStepPage = () => {
     // 다음 페이지로 이동
@@ -16,9 +22,9 @@ const SecondStepPage = () => {
     // 시간 추가하기
     const [isBottomUp, setBottomUp] = useState(false)
 
-    const [selectedTimes, setSelectedTimes] = useState([])
+    const [selectedTimes, setSelectedTimes] = useState<SelectedTime[]>([])
 
-    const addSelectedTime = timeSlot => {
+    const addSelectedTime = (timeSlot: SelectedTime) => {
         setSelectedTimes([...selectedTimes, timeSlot])
         console.log([...selectedTimes, timeSlot])
     }

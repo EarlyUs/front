@@ -14,6 +14,7 @@ interface Props {
     children?: React.ReactNode
     func?: () => void
     disabled?: boolean
+    className?: string
 }
 
 const Button: React.FC<Props> = ({
@@ -29,6 +30,7 @@ const Button: React.FC<Props> = ({
     children,
     func,
     disabled = false,
+    className = '',
 }) => {
     return (
         <>
@@ -44,7 +46,7 @@ const Button: React.FC<Props> = ({
                 bg={bg}
                 onClick={!disabled ? func : undefined}
                 disabled={disabled}
-                className={disabled ? 'disabled' : ''}
+                className={`${className} ${disabled ? 'disabled' : ''}`}
             >
                 {children}
             </s.Container>

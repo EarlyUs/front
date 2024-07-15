@@ -1,9 +1,15 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import * as s from './styles'
-import Button from '../../components/Button/index.tsx'
+import Button from '../../components/Button/index'
 import Dropdown from '../../components/Dropdown'
 import { formatStudentId } from '../../lib/utils'
+
+interface InfoProps {
+    college: string
+    department: string
+    major: string
+}
 
 const FirstStepPage = () => {
     // 다음 페이지로 이동
@@ -16,38 +22,54 @@ const FirstStepPage = () => {
     // 정보 상태관리
     const [studentId, setStudentId] = useState('')
     const [name, setName] = useState('')
-    const [primaryMajor, setPrimaryMajor] = useState('')
-    const [majors, setMajors] = useState([])
+    const [primaryMajor, setPrimaryMajor] = useState<InfoProps>({
+        college: '',
+        department: '',
+        major: '',
+    })
+    const [majors, setMajors] = useState<InfoProps[]>([])
     const [isButtonEnabled, setButtonEnabled] = useState(false)
 
     // 이름 변경시
-    const handleNameChange = e => {
+    const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setName(e.target.value)
     }
 
     // 학번 변경시
-    const handleStudentIdChange = e => {
+    const handleStudentIdChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const formatted = formatStudentId(e.target.value)
         setStudentId(formatted)
     }
 
     // Dropdown에서 선택 변경 사항을 받을 핸들러
-    const handleSelectionChange = (college, department, major) => {
+    const handleSelectionChange = (
+        selectedCollege: string,
+        selectedDepartment: string,
+        selectedMajor: string
+    ) => {
+        setPrimaryMajor({
+            college: selectedCollege,
+            department: selectedDepartment,
+            major: selectedMajor,
+        })
         const isFormValid =
             name.trim() !== '' &&
             studentId.trim() !== '' &&
-            college !== '' &&
-            department !== ''
+            selectedCollege !== '' &&
+            selectedDepartment !== ''
         setButtonEnabled(isFormValid)
     }
 
     // 전공 추가
     const handleAddMajor = () => {
-        setMajors(prevMajors => [...prevMajors, '']) // 빈 문자열을 추가하여 새 Dropdown을 나타냄
+        setMajors(prevMajors => [
+            ...prevMajors,
+            { college: '', department: '', major: '' },
+        ]) // 빈 객체를 추가하여 새 Dropdown을 나타냄
     }
 
     // 전공 삭제
-    const handleRemoveMajor = index => {
+    const handleRemoveMajor = (index: number) => {
         setMajors(prevMajors => prevMajors.filter((_, idx) => idx !== index))
     }
 
@@ -96,7 +118,21 @@ const FirstStepPage = () => {
                                     )}
                                 </s.ButtonBox>
                             </s.Header>
-                            <Dropdown />
+                            <Dropdown
+                                onSelectionChange={(
+                                    selectedCollege,
+                                    selectedDepartment,
+                                    selectedMajor
+                                ) => {
+                                    const newMajors = [...majors]
+                                    newMajors[index] = {
+                                        college: selectedCollege,
+                                        department: selectedDepartment,
+                                        major: selectedMajor,
+                                    }
+                                    setMajors(newMajors)
+                                }}
+                            />
                         </s.MajorInfo>
                     ))}
                     <s.MajorInfo>
@@ -108,7 +144,21 @@ const FirstStepPage = () => {
                                 </s.AddButton>
                             </s.ButtonBox>
                         </s.Header>
-                        <Dropdown />
+                        <Dropdown
+                            onSelectionChange={(
+                                selectedCollege,
+                                selectedDepartment,
+                                selectedMajor
+                            ) => {
+                                setMajors([
+                                    {
+                                        college: selectedCollege,
+                                        department: selectedDepartment,
+                                        major: selectedMajor,
+                                    },
+                                ])
+                            }}
+                        />
                     </s.MajorInfo>
                     <s.ButtonContainer>
                         <Button
