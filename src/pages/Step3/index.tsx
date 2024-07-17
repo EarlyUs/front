@@ -1,16 +1,17 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
 import * as s from './styles'
 import Button from '../../components/Button/index'
 import TypeBlock from '../../components/TypeBlock'
 
 type HelpType =
-    | 'noteTaking'
-    | 'fastTyping'
-    | 'materialMaking'
-    | 'mobilitySupport'
+    | 'NOTETAKING'
+    | 'FASTTYPING'
+    | 'MATERIALMAKING'
+    | 'MOBILITYSUPPORT'
 
-const LastStepPage = () => {
+const LastStepPage = ({ formData }: { formData: any }) => {
     // 다음 페이지로 이동
     const navigate = useNavigate()
 
@@ -18,18 +19,25 @@ const LastStepPage = () => {
         null
     )
 
-    // 각 TypeBlock의 선택 상태를 관리하는 객체
-    const [selectedStates, setSelectedStates] = useState({
-        noteTaking: false,
-        fastTyping: false,
-        materialMaking: false,
-        mobilitySupport: false,
-    })
-
-    const handleHref = () => {
-        // 선택된 TypeBlock이 없으면 네비게이션을 수행하지 않음
+    const handleHref = async () => {
         if (currentSelected === null) return
-        navigate('/wing/result')
+
+        const data = {
+            ...formData,
+            helpType: currentSelected,
+        }
+
+        try {
+            const response = await axios.post('/match/wing', data, {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
+            console.log(response.data)
+            navigate('/wing/result')
+        } catch (error) {
+            console.error(error)
+        }
     }
 
     // 특정 TypeBlock이 선택되었을 때 호출될 함수
@@ -50,33 +58,33 @@ const LastStepPage = () => {
                         title={'노트필기'}
                         desc={'수업 내용 중 강조해야 하는\n부분을 기록해요'}
                         img={'/icons/pencil.webp'}
-                        onSelectChange={() => handleSelectChange('noteTaking')}
-                        isSelected={currentSelected === 'noteTaking'}
+                        onSelectChange={() => handleSelectChange('NOTETAKING')}
+                        isSelected={currentSelected === 'NOTETAKING'}
                     />
                     <TypeBlock
                         title={'노트북 속타'}
                         desc={'강의 내용을 빠르게 작성하여\n전달해요'}
                         img={'/icons/computer.webp'}
-                        onSelectChange={() => handleSelectChange('fastTyping')}
-                        isSelected={currentSelected === 'fastTyping'}
+                        onSelectChange={() => handleSelectChange('FASTTYPING')}
+                        isSelected={currentSelected === 'FASTTYPING'}
                     />
                     <TypeBlock
                         title={'교재 제작'}
                         desc={'강의 교재와 도서를\n소리나 점자 형태로 만들어요'}
                         img={'/icons/books.webp'}
                         onSelectChange={() =>
-                            handleSelectChange('materialMaking')
+                            handleSelectChange('MATERIALMAKING')
                         }
-                        isSelected={currentSelected === 'materialMaking'}
+                        isSelected={currentSelected === 'MATERIALMAKING'}
                     />
                     <TypeBlock
                         title={'이동 지원'}
                         desc={'캠퍼스 내 원활하고 안전한\n이동을 보조해요'}
                         img={'/icons/wheelchair.webp'}
                         onSelectChange={() =>
-                            handleSelectChange('mobilitySupport')
+                            handleSelectChange('MOBILITYSUPPORT')
                         }
-                        isSelected={currentSelected === 'mobilitySupport'}
+                        isSelected={currentSelected === 'MOBILITYSUPPORT'}
                     />
                     <s.ButtonContainer>
                         <Button

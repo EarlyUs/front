@@ -1,5 +1,5 @@
 import * as s from './styles'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import majorsData from '../../mock/major.json'
 
 interface MajorData {
@@ -65,8 +65,8 @@ const Dropdown = ({ onSelectionChange }: Props) => {
 
     // 대학, 학과, 전공 선택 상태가 변경될 때마다 상위 컴포넌트에 알림
     useEffect(() => {
-        onSelectionChange?.(selectedCollege, selectedDepartment, selectedMajor)
-    }, [selectedCollege, selectedDepartment, selectedMajor, onSelectionChange])
+        onSelectionChange(selectedCollege, selectedDepartment, selectedMajor)
+    }, [selectedCollege, selectedDepartment, selectedMajor])
 
     const handleCollegeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         setSelectedCollege(e.target.value)

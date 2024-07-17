@@ -1,13 +1,24 @@
-import { useState } from 'react'
+import { ChangeEventHandler, useState, MouseEventHandler } from 'react'
 import Button from '../Button/index'
 import * as s from './styles'
 
-const BottomUp = ({ onClose, onAddTime }) => {
+interface TimeSlot {
+    selectedDay: string
+    startTime: string
+    finishTime: string
+}
+
+interface Props {
+    onClose: () => void
+    onAddTime: (timeSlot: TimeSlot) => void
+}
+
+const BottomUp = ({ onClose, onAddTime }: Props) => {
     const handleBackgroundClick = () => {
         onClose() // Background 클릭 시 onClose 호출
     }
 
-    const handleContainerClick = e => {
+    const handleContainerClick = (e: React.MouseEvent<HTMLDivElement>) => {
         e.stopPropagation() // Container 클릭 이벤트가 Background까지 전파되지 않도록 방지
     }
 
@@ -15,7 +26,7 @@ const BottomUp = ({ onClose, onAddTime }) => {
     const [startTime, setStartTime] = useState('8:00')
     const [finishTime, setFinishTime] = useState('9:15')
 
-    const [timeSlots, setTimeSlots] = useState([])
+    const [timeSlots, setTimeSlots] = useState<TimeSlot[]>([])
 
     const weekdays = ['월요일', '화요일', '수요일', '목요일', '금요일']
     const startTimes = [
@@ -26,7 +37,6 @@ const BottomUp = ({ onClose, onAddTime }) => {
         '14:00',
         '15:30',
         '17:00',
-        '18:30',
     ]
     const finishTimes = [
         '9:30',
@@ -36,7 +46,6 @@ const BottomUp = ({ onClose, onAddTime }) => {
         '15:30',
         '17:00',
         '18:30',
-        '8:00',
     ]
 
     const addTimeSlot = () => {
@@ -46,14 +55,22 @@ const BottomUp = ({ onClose, onAddTime }) => {
         ])
     }
 
-    const handleDayChange = e => {
-        setSelectedDay(e.target.value)
+    const handleDayChange = (index: number, value: string) => {
+        const newTimeSlots = [...timeSlots]
+        newTimeSlots[index].selectedDay = value
+        setTimeSlots(newTimeSlots)
     }
-    const handleStartChange = e => {
-        setStartTime(e.target.value)
+
+    const handleStartChange = (index: number, value: string) => {
+        const newTimeSlots = [...timeSlots]
+        newTimeSlots[index].startTime = value
+        setTimeSlots(newTimeSlots)
     }
-    const handleFinishChange = e => {
-        setFinishTime(e.target.value)
+
+    const handleFinishChange = (index: number, value: string) => {
+        const newTimeSlots = [...timeSlots]
+        newTimeSlots[index].finishTime = value
+        setTimeSlots(newTimeSlots)
     }
 
     return (
@@ -95,7 +112,9 @@ const BottomUp = ({ onClose, onAddTime }) => {
                         <s.SelectGroup>
                             <s.Select
                                 value={selectedDay}
-                                onChange={handleDayChange}
+                                onChange={e =>
+                                    handleDayChange(0, e.target.value)
+                                }
                             >
                                 {weekdays.map((day, index) => (
                                     <option key={index + 1} value={day}>
@@ -106,7 +125,9 @@ const BottomUp = ({ onClose, onAddTime }) => {
                             <s.SelectTime>
                                 <s.Time
                                     value={startTime}
-                                    onChange={handleStartChange}
+                                    onChange={e =>
+                                        handleStartChange(0, e.target.value)
+                                    }
                                 >
                                     {startTimes.map((time, index) => (
                                         <option key={index + 1} value={time}>
@@ -117,7 +138,9 @@ const BottomUp = ({ onClose, onAddTime }) => {
                                 ~
                                 <s.Time
                                     value={finishTime}
-                                    onChange={handleFinishChange}
+                                    onChange={e =>
+                                        handleFinishChange(0, e.target.value)
+                                    }
                                 >
                                     {finishTimes.map((time, index) => (
                                         <option key={index + 1} value={time}>

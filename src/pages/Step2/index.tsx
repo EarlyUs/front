@@ -11,11 +11,23 @@ interface SelectedTime {
     startTime: string
 }
 
-const SecondStepPage = () => {
+const SecondStepPage = ({
+    formData,
+    setFormData,
+}: {
+    formData: any
+    setFormData: (data: any) => void
+}) => {
     // 다음 페이지로 이동
     const navigate = useNavigate()
 
     const handleHref = () => {
+        setFormData({
+            ...formData,
+            classTimes: selectedTimes.map(time => ({
+                time: `${time.selectedDay} ${time.startTime}`,
+            })),
+        })
         navigate('/wing/step/3')
     }
 

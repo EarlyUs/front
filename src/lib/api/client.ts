@@ -1,16 +1,8 @@
-import axios from 'axios'
+import axios, { AxiosInstance } from 'axios'
 
-const createAxiosClient = () => {
-    const instance = axios.create({
-        baseURL: '/',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        timeout: 1000 * 60,
-    })
-    return instance
-}
-
-const client = createAxiosClient()
-
-export default client
+export const http: AxiosInstance = axios.create({
+    baseURL: import.meta.env.VITE_APP_API_URL,
+    headers: {
+        'Content-Type': 'application/json; charset=utf-8',
+    },
+})

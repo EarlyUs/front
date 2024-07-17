@@ -1,4 +1,5 @@
 import { Route, Routes as Router, useLocation } from 'react-router-dom'
+import { useState } from 'react'
 import Layout from './Layout'
 import ProgressLayout from './ProgressLayout'
 import LandingPage from './Landing'
@@ -17,6 +18,9 @@ import WaitingPage from './ResultDetail/Waiting'
 const Routes = () => {
     useScrollToTop()
 
+    // 매칭 정보 관리
+    const [formData, setFormData] = useState({})
+
     // `/step/*` 페이지에서 프로그레스바 활용
     const location = useLocation()
     const stepPaths = ['/wing/step/1', '/wing/step/2', '/wing/step/3']
@@ -33,9 +37,23 @@ const Routes = () => {
             progressBar={<Progressbar percentage={progressPercentage} />}
         >
             <Router>
-                <Route path="/wing/step/1" element={<FirstStepPage />} />
-                <Route path="/wing/step/2" element={<SecondStepPage />} />
-                <Route path="/wing/step/3" element={<LastStepPage />} />
+                <Route
+                    path="/wing/step/1"
+                    element={<FirstStepPage setFormData={setFormData} />}
+                />
+                <Route
+                    path="/wing/step/2"
+                    element={
+                        <SecondStepPage
+                            formData={formData}
+                            setFormData={setFormData}
+                        />
+                    }
+                />
+                <Route
+                    path="/wing/step/3"
+                    element={<LastStepPage formData={formData} />}
+                />
             </Router>
         </ProgressLayout>
     ) : (

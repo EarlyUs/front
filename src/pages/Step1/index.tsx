@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import * as s from './styles'
 import Button from '../../components/Button/index'
@@ -11,15 +11,23 @@ interface InfoProps {
     major: string
 }
 
-const FirstStepPage = () => {
-    // 다음 페이지로 이동
+const FirstStepPage = ({
+    setFormData,
+}: {
+    setFormData: (data: any) => void
+}) => {
     const navigate = useNavigate()
 
     const handleHref = () => {
+        setFormData({
+            studentId,
+            name,
+            primaryMajor,
+            majors: majors.map(major => major.major),
+        })
         navigate('/wing/step/2')
     }
 
-    // 정보 상태관리
     const [studentId, setStudentId] = useState('')
     const [name, setName] = useState('')
     const [primaryMajor, setPrimaryMajor] = useState<InfoProps>({
@@ -30,45 +38,43 @@ const FirstStepPage = () => {
     const [majors, setMajors] = useState<InfoProps[]>([])
     const [isButtonEnabled, setButtonEnabled] = useState(false)
 
-    // 이름 변경시
     const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setName(e.target.value)
     }
 
-    // 학번 변경시
     const handleStudentIdChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const formatted = formatStudentId(e.target.value)
         setStudentId(formatted)
     }
 
-    // Dropdown에서 선택 변경 사항을 받을 핸들러
-    const handleSelectionChange = (
-        selectedCollege: string,
-        selectedDepartment: string,
-        selectedMajor: string
-    ) => {
-        setPrimaryMajor({
-            college: selectedCollege,
-            department: selectedDepartment,
-            major: selectedMajor,
-        })
-        const isFormValid =
-            name.trim() !== '' &&
-            studentId.trim() !== '' &&
-            selectedCollege !== '' &&
-            selectedDepartment !== ''
-        setButtonEnabled(isFormValid)
-    }
+    const handleSelectionChange = useCallback(
+        (
+            selectedCollege: string,
+            selectedDepartment: string,
+            selectedMajor: string
+        ) => {
+            setPrimaryMajor({
+                college: selectedCollege,
+                department: selectedDepartment,
+                major: selectedMajor,
+            })
+            const isFormValid =
+                name.trim() !== '' &&
+                studentId.trim() !== '' &&
+                selectedCollege !== '' &&
+                selectedDepartment !== ''
+            setButtonEnabled(isFormValid)
+        },
+        [name, studentId]
+    )
 
-    // 전공 추가
     const handleAddMajor = () => {
         setMajors(prevMajors => [
             ...prevMajors,
             { college: '', department: '', major: '' },
-        ]) // 빈 객체를 추가하여 새 Dropdown을 나타냄
+        ])
     }
 
-    // 전공 삭제
     const handleRemoveMajor = (index: number) => {
         setMajors(prevMajors => prevMajors.filter((_, idx) => idx !== index))
     }
