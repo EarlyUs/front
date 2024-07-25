@@ -5,7 +5,6 @@ import Timetable from '../../components/Timetable'
 import Button from '../../components/Button/index'
 import BottomUp from '../../components/BottomUp'
 
-// SelectedTime 인터페이스 정의
 interface SelectedTime {
     selectedDay: string
     startTime: string
@@ -18,22 +17,19 @@ const SecondStepPage = ({
     formData: any
     setFormData: (data: any) => void
 }) => {
-    // 다음 페이지로 이동
     const navigate = useNavigate()
 
     const handleHref = () => {
         setFormData({
             ...formData,
-            classTimes: selectedTimes.map(time => ({
+            classTimeList: selectedTimes.map(time => ({
                 time: `${time.selectedDay} ${time.startTime}`,
             })),
         })
         navigate('/wing/step/3')
     }
 
-    // 시간 추가하기
     const [isBottomUp, setBottomUp] = useState(false)
-
     const [selectedTimes, setSelectedTimes] = useState<SelectedTime[]>([])
 
     const addSelectedTime = (timeSlot: SelectedTime) => {

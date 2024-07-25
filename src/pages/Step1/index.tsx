@@ -20,10 +20,8 @@ const FirstStepPage = ({
 
     const handleHref = () => {
         setFormData({
-            studentId,
-            name,
-            primaryMajor,
-            majors: majors.map(major => major.major),
+            major: primaryMajor.major,
+            doubleMajorList: majors.map(major => major.major),
         })
         navigate('/wing/step/2')
     }
@@ -113,7 +111,7 @@ const FirstStepPage = ({
                             <s.Header>
                                 <s.SubTitle>부/복수전공</s.SubTitle>
                                 <s.ButtonBox>
-                                    {majors.length >= 1 && ( // 전공이 여러 개 있을 때만 삭제 버튼을 표시
+                                    {majors.length >= 1 && (
                                         <s.AddButton
                                             onClick={() =>
                                                 handleRemoveMajor(index)

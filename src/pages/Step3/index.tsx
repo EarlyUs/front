@@ -1,9 +1,10 @@
+// step3.tsx
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import axios from 'axios'
 import * as s from './styles'
 import Button from '../../components/Button/index'
 import TypeBlock from '../../components/TypeBlock'
+import { http } from '../../lib/api/client' // Import the http instance from client.ts
 
 type HelpType =
     | 'NOTETAKING'
@@ -12,9 +13,7 @@ type HelpType =
     | 'MOBILITYSUPPORT'
 
 const LastStepPage = ({ formData }: { formData: any }) => {
-    // 다음 페이지로 이동
     const navigate = useNavigate()
-
     const [currentSelected, setCurrentSelected] = useState<HelpType | null>(
         null
     )
@@ -28,11 +27,7 @@ const LastStepPage = ({ formData }: { formData: any }) => {
         }
 
         try {
-            const response = await axios.post('/match/wing', data, {
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            })
+            const response = await http.post('/match/wing', data)
             console.log(response.data)
             navigate('/wing/result')
         } catch (error) {
@@ -40,9 +35,8 @@ const LastStepPage = ({ formData }: { formData: any }) => {
         }
     }
 
-    // 특정 TypeBlock이 선택되었을 때 호출될 함수
     const handleSelectChange = (type: HelpType) => {
-        setCurrentSelected(type) // 현재 선택된 TypeBlock 업데이트
+        setCurrentSelected(type)
     }
 
     return (
