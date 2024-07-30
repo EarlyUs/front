@@ -1,15 +1,16 @@
 import { memo } from 'react'
-import _ from 'lodash'
 import * as s from './styles'
 
 interface SelectedTime {
     selectedDay: string
     startTime: string
+    finishTime: string
 }
 
 interface TimetableProps {
     selectedTimes: SelectedTime[]
 }
+
 const classTimes = [
     { label: '1교시', startTime: '8:00', endTime: '9:30' },
     { label: '2교시', startTime: '9:30', endTime: '11:00' },
@@ -22,16 +23,34 @@ const classTimes = [
 ]
 
 const Timetable = memo(({ selectedTimes }: TimetableProps) => {
-    // 요일 배열
     const days = ['월요일', '화요일', '수요일', '목요일', '금요일']
 
-    const isSelectedTime = (day: string, time: string) => {
-        console.log(time)
-        return selectedTimes.some(
-            selectedTime =>
-                selectedTime.selectedDay === day &&
-                selectedTime.startTime === time
-        )
+    const timeStringToMinutes = (time: string) => {
+        const [hours, minutes] = time.split(':').map(Number)
+        return hours * 60 + minutes
+    }
+
+    // 중첩된 배열을 평탄화
+    const flattenedSelectedTimes = selectedTimes.flat()
+
+    const isSelectedTime = (
+        day: string,
+        startTime: string,
+        endTime: string
+    ) => {
+        return flattenedSelectedTimes.some(selectedTime => {
+            if (!selectedTime.selectedDay || selectedTime.selectedDay !== day) {
+                return false
+            }
+
+            const start = timeStringToMinutes(startTime)
+            const end = timeStringToMinutes(endTime)
+            const selectedStart = timeStringToMinutes(selectedTime.startTime)
+            const selectedEnd = timeStringToMinutes(selectedTime.finishTime)
+            const result = selectedStart < end && selectedEnd > start
+
+            return result
+        })
     }
 
     return (
@@ -39,7 +58,7 @@ const Timetable = memo(({ selectedTimes }: TimetableProps) => {
             <s.StyledTable>
                 <thead>
                     <tr>
-                        <s.StyledTh></s.StyledTh> {/* 좌측 상단 빈 셀 */}
+                        <s.StyledTh></s.StyledTh>
                         {days.map(day => (
                             <s.StyledTh key={day}>{day[0]}</s.StyledTh>
                         ))}
@@ -48,20 +67,20 @@ const Timetable = memo(({ selectedTimes }: TimetableProps) => {
                 <tbody>
                     {classTimes.map((classTime, index) => (
                         <tr key={index}>
-                            <s.TimeLabel>{classTime.label[0]}</s.TimeLabel>
-                            {days.map(day => (
-                                <s.StyledTd
-                                    key={day}
-                                    style={{
-                                        backgroundColor: isSelectedTime(
-                                            day,
-                                            classTime.startTime
-                                        )
-                                            ? 'var(--blue-mute)'
-                                            : '#fff',
-                                    }}
-                                />
-                            ))}
+                            <s.TimeLabel>{classTime.label}</s.TimeLabel>
+                            {days.map(day => {
+                                const isHighlighted = isSelectedTime(
+                                    day,
+                                    classTime.startTime,
+                                    classTime.endTime
+                                )
+                                return (
+                                    <s.StyledTd
+                                        key={day}
+                                        $isHighlighted={isHighlighted}
+                                    />
+                                )
+                            })}
                         </tr>
                     ))}
                 </tbody>

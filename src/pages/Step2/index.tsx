@@ -8,6 +8,7 @@ import BottomUp from '../../components/BottomUp'
 interface SelectedTime {
     selectedDay: string
     startTime: string
+    finishTime: string
 }
 
 const SecondStepPage = ({
@@ -23,7 +24,7 @@ const SecondStepPage = ({
         setFormData({
             ...formData,
             classTimeList: selectedTimes.map(time => ({
-                time: `${time.selectedDay} ${time.startTime}`,
+                time: `${time.selectedDay} ${time.startTime}~${time.finishTime}`,
             })),
         })
         navigate('/wing/step/3')

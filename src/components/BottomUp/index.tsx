@@ -10,7 +10,7 @@ interface TimeSlot {
 
 interface Props {
     onClose: () => void
-    onAddTime: (timeSlot: TimeSlot) => void
+    onAddTime: (timeSlot: TimeSlot[]) => void // Change this to accept an array of TimeSlot
 }
 
 const BottomUp = ({ onClose, onAddTime }: Props) => {
@@ -21,12 +21,6 @@ const BottomUp = ({ onClose, onAddTime }: Props) => {
     const handleContainerClick = (e: React.MouseEvent<HTMLDivElement>) => {
         e.stopPropagation() // Container 클릭 이벤트가 Background까지 전파되지 않도록 방지
     }
-
-    const [selectedDay, setSelectedDay] = useState('월요일')
-    const [startTime, setStartTime] = useState('8:00')
-    const [finishTime, setFinishTime] = useState('9:15')
-
-    const [timeSlots, setTimeSlots] = useState<TimeSlot[]>([])
 
     const weekdays = ['월요일', '화요일', '수요일', '목요일', '금요일']
     const startTimes = [
@@ -48,29 +42,54 @@ const BottomUp = ({ onClose, onAddTime }: Props) => {
         '18:30',
     ]
 
+    const [timeSlots, setTimeSlots] = useState<TimeSlot[]>([
+        {
+            selectedDay: weekdays[0],
+            startTime: startTimes[0],
+            finishTime: finishTimes[0],
+        },
+    ])
+
     const addTimeSlot = () => {
         setTimeSlots([
             ...timeSlots,
-            { selectedDay: '', startTime: '', finishTime: '' },
+            {
+                selectedDay: weekdays[0],
+                startTime: startTimes[0],
+                finishTime: finishTimes[0],
+            },
         ])
     }
 
     const handleDayChange = (index: number, value: string) => {
         const newTimeSlots = [...timeSlots]
-        newTimeSlots[index].selectedDay = value
-        setTimeSlots(newTimeSlots)
+        if (newTimeSlots[index]) {
+            newTimeSlots[index].selectedDay = value
+            setTimeSlots(newTimeSlots)
+        }
     }
 
     const handleStartChange = (index: number, value: string) => {
         const newTimeSlots = [...timeSlots]
-        newTimeSlots[index].startTime = value
-        setTimeSlots(newTimeSlots)
+        if (newTimeSlots[index]) {
+            newTimeSlots[index].startTime = value
+            setTimeSlots(newTimeSlots)
+        }
     }
 
     const handleFinishChange = (index: number, value: string) => {
         const newTimeSlots = [...timeSlots]
-        newTimeSlots[index].finishTime = value
-        setTimeSlots(newTimeSlots)
+        if (newTimeSlots[index]) {
+            newTimeSlots[index].finishTime = value
+            setTimeSlots(newTimeSlots)
+        }
+    }
+
+    const saveTimeSlot = () => {
+        if (timeSlots.length > 0) {
+            onAddTime(timeSlots) // Pass all timeSlots to onAddTime
+            onClose()
+        }
     }
 
     return (
@@ -96,60 +115,12 @@ const BottomUp = ({ onClose, onAddTime }: Props) => {
                             color={'var(--blue-strong)'}
                             bg={'#fff'}
                             font={1}
-                            func={() => {
-                                onAddTime({
-                                    selectedDay,
-                                    startTime,
-                                    finishTime,
-                                })
-                                onClose()
-                            }}
+                            func={saveTimeSlot}
                         >
                             저장
                         </Button>
                     </s.ButtonGroup>
                     <s.TimeGroup>
-                        <s.SelectGroup>
-                            <s.Select
-                                value={selectedDay}
-                                onChange={e =>
-                                    handleDayChange(0, e.target.value)
-                                }
-                            >
-                                {weekdays.map((day, index) => (
-                                    <option key={index + 1} value={day}>
-                                        {day}
-                                    </option>
-                                ))}
-                            </s.Select>
-                            <s.SelectTime>
-                                <s.Time
-                                    value={startTime}
-                                    onChange={e =>
-                                        handleStartChange(0, e.target.value)
-                                    }
-                                >
-                                    {startTimes.map((time, index) => (
-                                        <option key={index + 1} value={time}>
-                                            {time}
-                                        </option>
-                                    ))}
-                                </s.Time>
-                                ~
-                                <s.Time
-                                    value={finishTime}
-                                    onChange={e =>
-                                        handleFinishChange(0, e.target.value)
-                                    }
-                                >
-                                    {finishTimes.map((time, index) => (
-                                        <option key={index + 1} value={time}>
-                                            {time}
-                                        </option>
-                                    ))}
-                                </s.Time>
-                            </s.SelectTime>
-                        </s.SelectGroup>
                         {timeSlots.map((slot, index) => (
                             <s.SelectGroup key={index}>
                                 <s.Select
