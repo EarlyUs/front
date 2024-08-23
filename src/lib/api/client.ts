@@ -5,5 +5,4 @@ export const http: AxiosInstance = axios.create({
     headers: {
         'Content-Type': 'application/json; charset=utf-8',
     },
-    withCredentials: true,
 })
