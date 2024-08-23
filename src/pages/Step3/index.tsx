@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import * as s from './styles'
 import Button from '../../components/Button/index'
 import TypeBlock from '../../components/TypeBlock'
-import { http } from '../../lib/api/client' // Import the http instance from client.ts
+import { http } from '../../lib/api/client'
 
 type HelpType =
     | 'NOTETAKING'
